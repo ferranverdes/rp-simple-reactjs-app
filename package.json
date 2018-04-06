@@ -1,19 +1,16 @@
 {
-  "name": "unavezdijounsabio",
-  "version": "1.0.0",
-  "description": "unavezdijounsabio.com",
-  "main": "index.js",
+  "name": "unavezdijounsabio.com",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ferranverdes/unavezdijounsabio.com.git"
-  },
-  "author": "Ferran Verdés",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ferranverdes/unavezdijounsabio.com/issues"
-  },
-  "homepage": "https://github.com/ferranverdes/unavezdijounsabio.com#readme"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
