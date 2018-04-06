@@ -1,0 +1,19 @@
+{
+  "name": "unavezdijounsabio",
+  "version": "1.0.0",
+  "description": "unavezdijounsabio.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferranverdes/unavezdijounsabio.com.git"
+  },
+  "author": "Ferran Verdés",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ferranverdes/unavezdijounsabio.com/issues"
+  },
+  "homepage": "https://github.com/ferranverdes/unavezdijounsabio.com#readme"
+}
