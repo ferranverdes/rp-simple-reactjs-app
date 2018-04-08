@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import { firebaseReducer } from 'react-redux-firebase';
-import { firestoreReducer } from 'redux-firestore';
+import phraseReducer from './phrase';
 
 const reducer = combineReducers({
-	firebase: firebaseReducer,
-	firestore: firestoreReducer
+	phrase: phraseReducer
 });
 
 export default reducer;

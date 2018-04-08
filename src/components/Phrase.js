@@ -4,7 +4,6 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 
-import { firestore } from '../firebase';
 import Loading from './Loading';
 
 const styles = theme => ({
@@ -17,32 +16,16 @@ const styles = theme => ({
 });
 
 class Phrase extends Component {
-	state = {
-		phrase: null
-	};
-
 	static propTypes = {
 		classes: PropTypes.object.isRequired
 	};
 
-	componentDidMount() {
-		this.phrasesRef = firestore.collection('phrases').where('active', '==', true);
-		this.unsubscribePhrases = this.phrasesRef.onSnapshot(querySnapshot => {
-			querySnapshot.forEach(doc => {
-				this.setState({
-					phrase: doc.data()
-				});
-			});
-		});
-	}
-
-	componentWillUnmount() {
-		this.unsubscribePhrases();
-	}
+	componentDidMount = () => {
+		this.props.fetchPhrase();
+	};
 
 	render() {
-		const { classes } = this.props;
-		const { phrase } = this.state;
+		const { classes, phrase } = this.props;
 
 		return (
 			<div>

@@ -1,3 +1,5 @@
-const initialState = {};
+const initialState = {
+	phrase: null
+};
 
 export default initialState;

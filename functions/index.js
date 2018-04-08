@@ -1,16 +1,15 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
 const { getRandomNumber } = require('./utils');
+
+admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 const phrasesRef = db.collection('phrases');
 
-// Si es vol pujar el codi al Github aquesta key ha de ser una variable de entorn
-const CRON_SECRET_KEY =
-	'mABtP9dR7Xg4QHWKyUL5ZEExf2jTDHgUbqfM3hFw3ew5QA4AwH' || functions.config().cron.key;
+const CRON_SECRET_KEY = functions.config().cron ? functions.config().cron.key : 'developKey';
 
-exports.updateCurrentPhrase = functions.https.onRequest((req, res) => {
+exports.changeActivatedPhrase = functions.https.onRequest((req, res) => {
 	const { key } = req.query;
 
 	if (key !== CRON_SECRET_KEY) {
