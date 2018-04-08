@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Phrase from './Phrase';
 
-import { firestore } from '../firebase';
+import './App.css';
 
-const phrasesRef = firestore.collection('phrases');
+const styles = theme => ({
+	root: {
+		display: 'flex',
+		height: '100%',
+		width: '100%',
+		justifyContent: 'center',
+		backgroundImage: 'url(/images/background.jpg)',
+		backgroundSize: 'cover'
+	},
+	phrase: {
+		alignSelf: 'center'
+	}
+});
 
 class App extends Component {
-	state = {
-		phrase: null
+	static propTypes = {
+		classes: PropTypes.object.isRequired
 	};
 
-	componentDidMount() {
-		phrasesRef.where('active', '==', true).onSnapshot(snapshot => {
-			console.log('snap');
-		});
-	}
-
 	render() {
-		const { phrases } = this.props;
+		const { classes } = this.props;
 
-		console.log('render');
-		console.log(phrases);
-
-		return <div>{phrases ? 'Yes' : 'Loading...'}</div>;
+		return (
+			<div className={classes.root}>
+				<div className={classes.phrase}>
+					<Phrase />
+				</div>
+			</div>
+		);
 	}
 }
 
-export default App;
+export default withStyles(styles)(App);
