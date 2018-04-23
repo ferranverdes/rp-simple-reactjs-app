@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Phrase from './PhraseContainer';
+import AddButton from './AddButton';
 import './App.css';
 
 import { storage } from '../firebase';
@@ -15,8 +16,11 @@ const styles = theme => ({
 		width: '100%',
 		justifyContent: 'center'
 	},
-	content: {
+	phrase: {
 		alignSelf: 'center'
+	},
+	addButton: {
+		position: 'absolute'
 	}
 });
 
@@ -45,9 +49,8 @@ class App extends Component {
 
 		return (
 			<div className={classes.root} style={{ backgroundSize, backgroundImage }}>
-				<div className={classes.content}>
-					<Phrase />
-				</div>
+				<Phrase classNames={classes.phrase} />
+				<AddButton classNames={classes.addButton} handleClick={() => console.log('hey')} />
 			</div>
 		);
 	}

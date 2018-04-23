@@ -7,7 +7,7 @@ import Typography from 'material-ui/Typography';
 import Loading from './Loading';
 
 const styles = theme => ({
-	root: theme.mixins.gutters({
+	paper: theme.mixins.gutters({
 		paddingTop: 16,
 		paddingBottom: 16,
 		margin: theme.spacing.unit * 2,
@@ -25,12 +25,12 @@ class Phrase extends Component {
 	};
 
 	render() {
-		const { classes, phrase } = this.props;
+		const { classes, classNames, phrase } = this.props;
 
 		return (
-			<div>
+			<div className={classNames}>
 				{phrase ? (
-					<Paper className={classes.root} elevation={24}>
+					<Paper className={classes.paper} elevation={24}>
 						<Typography variant="headline" component="h3">
 							{phrase.text}
 						</Typography>
